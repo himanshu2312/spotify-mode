@@ -1,0 +1,70 @@
+/* not in use  */
+.border-red-2px {
+      border: 2px solid red;
+      margin: 3px;
+}
+
+.flex {
+      display: flex;
+}
+
+.justify-center {
+      justify-content: center;
+}
+
+.items-center {
+      align-items: center;
+}
+
+.flex-col{
+      flex-direction: column;
+}
+
+.bg-grey{
+      background: #121212;
+      color: white;
+}
+
+/* not in use  */
+.bg-black{
+      background: black;
+      color: white;
+}
+
+/* not in use  */
+.border-black-1px{
+      border: 1px solid black;
+}
+
+.invert{
+      filter: invert(1);
+}
+
+.rounded{
+      border-radius: 10px;
+}
+
+/* not in use  */
+.my-2{
+      margin-top: 6px;
+      margin-bottom: 6px;
+}
+
+/* not in use  */
+.mx-1{
+      margin-top: 3px;
+      margin-bottom: 3px;
+}
+
+.m-1{
+      margin: 5px;
+}
+
+/* not in use  */
+.p-1{
+      padding: 12px;
+}
+
+.p-2{
+      padding: 24px;
+}
