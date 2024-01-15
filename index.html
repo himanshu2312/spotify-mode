@@ -13,7 +13,7 @@
 
       <!-- description -->
       <meta name="description"
-            content="Spotify : This is mode version of Spotify Web Application. This application has some cool feauters like it can automaticaly detect your systems music & audio files and diplay it to you. You can listen music and also use play, pause and stop like features.">
+            content="Spotify : This is mode version of Spotify Web Application. This application has some cool feauters like it can automaticaly detect your systems music & audio files and display it to you. You can listen music and also use play, pause and stop like features.">
 
       <!-- title -->
       <title>Spotify - Web Player: Music for everyone</title>
@@ -28,20 +28,60 @@
 <body>
       <div class="body flex">
             <div class="left">
-                  <div class="home bg-grey rounded m-1 p-2">
+                  <div class="home bg-grey rounded m-1_5 p-3">
                         <div class="logo">
                               <img class="invert" src="assets/logo.svg" alt="Spotify_logo">
                         </div>
                         <ul>
-                              <li><img class="invert"  src="assets/home.svg" alt="home">Home</li>
-                              <li><img class="invert"  src="assets/search.svg" alt="home">Search</li>
+                              <li><img class="invert" src="assets/home.svg" alt="home">Home</li>
+                              <li><img class="invert" src="assets/search.svg" alt="home">Search</li>
                         </ul>
                   </div>
-                  <div class="library bg-grey rounded m-1 p-2">
-                        Your Lib
+                  <div class="library bg-grey rounded m-1_5 p-3">
+                        <div class="flex justify-between">
+                              <div class="heading">
+                                    <img class="invert" src="assets/playlist.svg" alt="list_icon">
+                                    <span>Your library</span>
+                              </div>
+                              <img class="invert" src="assets/add.svg" alt="add">
+                        </div>
+                        <div class="footer">
+                              <div class="footer-content">
+                                    <div><a href="https://www.spotify.com/in-en/legal/"><span>Legal</span></a></div>
+                                    <div><a href="https://www.spotify.com/in-en/privacy/"><span>Privacy
+                                                      Center</span></a></div>
+                                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/"><span>Privacy
+                                                      Policy</span></a></div>
+                                    <div><a
+                                                href="https://www.spotify.com/in-en/legal/cookies-policy/"><span>Cookies</span></a>
+                                    </div>
+                                    <div><a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"><span>About
+                                                      Ads</span></a></div>
+                                    <div><a
+                                                href="https://www.spotify.com/in-en/accessibility/"><span>Accessibility</span></a>
+                                    </div>
+                              </div>
+                              <div class="footer-btn">
+                                    <button><span>English</span></button>
+                              </div>
+                        </div>
                   </div>
             </div>
-            <div class="right">right</div>
+            <div class="right rounded my-1_5">
+                  <div class="header bg-grey p-3">
+                        <div class="nav">
+                              <img class="invert" src="assets/left.svg" alt="">
+                              <img class="invert" src="assets/right.svg" alt="">
+                        </div>
+                        <div class="buttons">
+                              <button>Sign up</button>
+                              <button>Log in</button>
+                        </div>
+                  </div>
+                  <div class="playlists">
+                        <h2>Spotify Playlists</h2>
+                  </div>
+            </div>
       </div>
 </body>
 
