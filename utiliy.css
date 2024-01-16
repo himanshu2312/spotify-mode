@@ -24,6 +24,10 @@
       flex-direction: column;
 }
 
+.flex-wrap{
+      flex-wrap: wrap;
+}
+
 .bg-grey {
       background: #121212;
       color: white;
@@ -81,10 +85,60 @@
       margin-bottom: 25px;
 }
 
+.mt-1 {
+      margin-top: 5px;
+}
+
+.mt-1_5 {
+      margin-top: 7.5px;
+}
+
+/* not in use  */
+.mt-2 {
+      margin-top: 10px;
+}
+
+/* not in use  */
+.mt-3 {
+      margin-top: 15px;
+}
+
+/* not in use  */
+.mt-4 {
+      margin-top: 20px;
+}
+
+.mt-5 {
+      margin-top: 25px;
+}
+
 /* not in use  */
 .mx-1 {
-      margin-top: 5px;
-      margin-bottom: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+}
+
+/* not in use  */
+.mx-2 {
+      margin-left: 10px;
+      margin-right: 10px;
+}
+
+/* not in use  */
+.mx-3 {
+      margin-left: 15px;
+      margin-right: 15px;
+}
+
+/* not in use  */
+.mx-4 {
+      margin-left: 20px;
+      margin-right: 20px;
+}
+
+.mx-5 {
+      margin-left: 25px;
+      margin-right: 25px;
 }
 
 .m-1 {
@@ -99,6 +153,18 @@
       margin: 10px;
 }
 
+.m-3 {
+      margin: 15px;
+}
+
+/* not in use  */
+.m-4 {
+      margin: 20px;
+}
+
+.m-5 {
+      margin: 25px;
+}
 /* not in use  */
 .p-1 {
       padding: 5px;

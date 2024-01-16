@@ -15,6 +15,10 @@ body {
       width: 25vw;
 }
 
+.home{
+      height: 18vh;
+}
+
 .home ul li {
       list-style: none;
       font-weight: 700;
@@ -25,7 +29,7 @@ body {
 }
 
 .library {
-      height: 70vh;
+      height: 68vh;
       position: relative;
 }
 
@@ -45,6 +49,7 @@ body {
 .right {
       width: 75vw;
       overflow-y: auto;
+      max-height: 80vh;
 }
 
 .footer {
@@ -68,8 +73,61 @@ body {
       color: grey;
 }
 
-.header{
+.header {
       display: flex;
       justify-content: space-between;
       z-index: 1;
+      position: sticky;
+      top: 0;
+}
+
+.header img{
+      background-color: white;
+      border-radius: 50%;
+      padding: 4px;
+      color: white;
+}
+
+.card {
+      width: 200px;
+      background: #131313;
+      position: relative;
+      transition: all 0.15s linear;
+}
+
+.card:hover{
+      cursor: pointer;
+      background-color: #252525;
+}
+
+.card img {
+      object-fit: contain;
+      width: 100%;
+      border-radius: inherit;
+}
+
+.card .description h4 {
+      font-size: 16px;
+      font-weight: 700;
+}
+
+.card .description p {
+      font-size: 14px;
+      color: grey;
+}
+
+.card .play {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      right: 20px;
+      top: 160px;
+      border-radius: 50%;
+      background-color: #1ed760;
+}
+.play:hover{
+      background-color: #1fdf64;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
 }
