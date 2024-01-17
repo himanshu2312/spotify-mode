@@ -29,7 +29,7 @@ body {
 }
 
 .library {
-      height: 68vh;
+      height: 72vh;
       position: relative;
 }
 
@@ -48,8 +48,6 @@ body {
 
 .right {
       width: 75vw;
-      overflow-y: auto;
-      max-height: 80vh;
 }
 
 .footer {
@@ -76,6 +74,7 @@ body {
 .header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       z-index: 1;
       position: sticky;
       top: 0;
@@ -84,8 +83,13 @@ body {
 .header img{
       background-color: white;
       border-radius: 50%;
-      padding: 4px;
+      padding: 10px;
       color: white;
+}
+
+.playlists{
+      overflow-y: auto;
+      max-height: 75vh;
 }
 
 .card {
@@ -130,4 +134,34 @@ body {
       width: 50px;
       height: 50px;
       cursor: pointer;
+}
+
+.btn-signup{
+      color: grey;
+      background-color: transparent;
+      font-size: 22px;
+      border: none;
+      margin-right: 20px;
+}
+
+.btn-signup:hover{
+      color: white;
+      cursor: pointer;
+      font-size: 24px;
+}
+
+.btn-login{
+      color: black;
+      background-color: white;
+      font-size: 22px;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 25px;
+      border-color: transparent;
+}
+
+.btn-login:hover{
+      background-color: rgb(243, 236, 236);
+      cursor: pointer;
+      font-size: 24px;
 }

@@ -24,7 +24,7 @@
       flex-direction: column;
 }
 
-.flex-wrap{
+.flex-wrap {
       flex-wrap: wrap;
 }
 
@@ -165,6 +165,7 @@
 .m-5 {
       margin: 25px;
 }
+
 /* not in use  */
 .p-1 {
       padding: 5px;
@@ -185,3 +186,78 @@
 .p-5 {
       padding: 25px;
 }
+
+/* not in use  */
+.px-1 {
+      padding-left: 5px;
+      padding-right: 5px;
+}
+
+/* not in use  */
+.px-2 {
+      padding-left: 10px;
+      padding-right: 10px;
+}
+
+/* not in use  */
+.px-3 {
+      padding-left: 15px;
+      padding-right: 15px;
+}
+
+/* not in use  */
+.px-4 {
+      padding-left: 20px;
+      padding-right: 20px;
+}
+
+.px-5 {
+      padding-left: 25px;
+      padding-right: 25px;
+}
+
+/* .btn-black{
+      background-color: black;
+      color: white;
+}
+
+.btn-white{
+      background-color: white;
+      color: black;
+}
+
+.btn-black:hover{
+      cursor: pointer;
+      background-color: rgb(21, 21, 21);
+}
+
+.btn-white:hover{
+      cursor: pointer;
+      background-color: rgb(246, 239, 239)
+} */
+
+/* WebKit (Chrome, Safari) scrollbar styling */
+::-webkit-scrollbar {
+      width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+      background-color: #333;
+      /* Dark color for the thumb */
+      border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+      background-color: #666;
+      /* Track color */
+}
+
+/* General styling for both WebKit and Firefox */
+body {
+      scrollbar-width: thin;
+      /* For Firefox */
+}
+
+/* Optional: hide the scrollbar when not scrolling */
+/* Uncomment the following line if you want to hide the scrollbar when not scrolling */
+/* body { overflow: -moz-scrollbars-none; } */
