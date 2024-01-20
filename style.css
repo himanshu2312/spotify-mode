@@ -13,6 +13,7 @@ body {
 
 .left {
       width: 25vw;
+      position: relative;
 }
 
 .home{
@@ -30,7 +31,6 @@ body {
 
 .library {
       height: 72vh;
-      position: relative;
 }
 
 .heading {
@@ -48,6 +48,7 @@ body {
 
 .right {
       width: 75vw;
+      position: relative;
 }
 
 .footer {
@@ -75,9 +76,12 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1;
-      position: sticky;
-      top: 0;
+      /* z-index: 1; */
+      /* position: sticky;
+      top: 7.5px; */
+      /* height: 6vh; */
+      border-top-right-radius: inherit;
+      border-top-left-radius: inherit;
 }
 
 .header img{
@@ -134,6 +138,9 @@ body {
       width: 50px;
       height: 50px;
       cursor: pointer;
+      /* right: 20px;
+      top: 160px;
+      opacity: 1; */
 }
 
 .btn-signup{
@@ -155,7 +162,7 @@ body {
       background-color: white;
       font-size: 22px;
       font-weight: bold;
-      padding: 12px 30px;
+      padding: 11px 30px;
       border-radius: 25px;
       border-color: transparent;
 }
@@ -163,5 +170,19 @@ body {
 .btn-login:hover{
       background-color: rgb(243, 236, 236);
       cursor: pointer;
-      font-size: 24px;
+      font-size: 23px;
+}
+
+.playbar{
+      position: absolute;
+      bottom: 0;
+      background-color: #43564a;
+      width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
+      height: 12vh;
+}
+
+.playbar .song-btn{
+      gap: 20px;
 }
