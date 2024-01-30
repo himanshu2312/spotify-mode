@@ -185,4 +185,9 @@ body {
 
 .playbar .song-btn{
       gap: 20px;
+      size: 25px;
+}
+
+.song-btn>img{
+      width: 40px;
 }
