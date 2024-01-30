@@ -1,3 +1,11 @@
+// accesding DOM Elements to manipulate them on user interaction
+const songDiv = document.getElementById("divCurrentSong");
+const songName = songDiv.firstElementChild.firstElementChild;
+const songTime = songDiv.lastElementChild.firstElementChild;
+const btnPlay = songDiv.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling;
+const songUl = document.querySelector(".songs");
+var currentSong = {};
+
 // function to fetch the songs
 const getSongs = async () => {
       const response = await fetch("http://192.168.43.59:3000/songs/");
@@ -14,35 +22,60 @@ const getSongs = async () => {
       return songs;
 }
 
+const handlePlayPause = (audio, btnPlay) => {
+
+      // initialising counter to keep track of play and pause
+      var count = 0;
+
+      btnPlay.addEventListener("click", () => {
+            try {
+                  console.log("click")
+                  if (count === 0) {
+                        count++;
+                        audio.play();
+                        console.log(audio.duration);
+                        console.log(audio.currentTime);
+                  } else {
+                        count--;
+                        audio.pause();
+                        console.log(audio.duration);
+                        console.log(audio.currentTime);
+                  }
+            } catch (e) {
+                  console.log(e.message)
+            }
+      })
+
+}
+
+// this function displays the song list to user on web
+const displaySongs = (songs) => {
+      songs?.map((song)=>{
+            songUl.innerHTML = songUl.innerHTML + `<li>${decodeURIComponent(song.split("/songs/")[1])}</li>`;
+            // songItem.addEventListener("click",()=>{
+            //       console.log("assigning current to " + song)
+            //       currentSong = song;
+            // })
+      })
+}
+
 // function main
 async function main() {
       // getting songs list
       const songs = await getSongs();
-      // console.log(songs);
 
+      // current song file
+      currentSong = songs[0];
 
-      // audio.addEventListener("loadedData",()=>{
-      //       console.log(audio.duration())
-      // })
+      // display songs list to user
+      displaySongs(songs);
 
-      const songDiv = document.getElementById("divCurrentSong");
-      songDiv.firstElementChild.firstElementChild.innerHTML = "Name";
-      songDiv.lastElementChild.innerHTML = "Song time"
-      console.log(songDiv);
+      // initialising a audio type object to play and pause the song in backend
+      var audio = new Audio(currentSong);
 
-      var count = 0;
-      var audio = null;
-
-      // songDiv.addEventListener("click",()=>{
-      //       if(count%2==0){
-      //             // playing first song 
-      //             console.log(songs[0]);
-      //             audio = new Audio(songs[0]);
-      //             audio.play();
-      //       }else{
-      //             audio.pause();
-      //       }
-      // })
+      // this is a custom function that takes and sudio file & a btn
+      // whenever any user hit the btn this will automaticaly play that audio and will pause it on another click
+      handlePlayPause(audio, btnPlay)
 
 }
 
