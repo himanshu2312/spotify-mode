@@ -2,12 +2,14 @@
 const baseUrl = "http://192.168.43.59:3000/songs/";
 
 // accesding DOM Elements to manipulate them on user interaction
-const songDiv = document.getElementById("divCurrentSong");
-const songName = songDiv.firstElementChild.firstElementChild;
-const songTime = songDiv.lastElementChild.firstElementChild;
-const btnPlay = document.getElementById("play/pause")
+const playbar = document.getElementById("playbar");
+const songName = playbar.firstElementChild.firstElementChild;
+const songTime = playbar.lastElementChild.previousElementSibling.firstElementChild;
+const btnPlayPause = document.getElementById("play/pause")
 const songUl = document.querySelector(".songs");
-var currentSong = new Audio();
+const pointer = document.getElementById("pointer");
+const seekbar = document.getElementById("seekbar");
+var currentSong = new Audio("/assets/drive-breakbeat.mp3");
 
 // function to fetch the songs
 const getSongs = async () => {
@@ -25,11 +27,10 @@ const getSongs = async () => {
       return songs;
 }
 
-const handlePlayPause = (btnPlay) => {
+const handlePlayPause = (btnPlayPause) => {
 
-      btnPlay.addEventListener("click", () => {
+      btnPlayPause.addEventListener("click", () => {
             try {
-                  console.log("click")
                   if (currentSong.paused) {
                         playMusic();
                   } else {
@@ -64,7 +65,6 @@ const addListners = () => {
       Array.from(songUl.getElementsByTagName("li")).forEach((li) => {
             // updating current song if music item is clicked
             li.addEventListener("click", () => {
-                  
                   updateCurrentSong(li.querySelector(".info").firstElementChild.firstElementChild.innerHTML)
                   playMusic();
             })
@@ -75,30 +75,60 @@ const addListners = () => {
 const playMusic = () => {
       pauseMusic();
       currentSong.play();
-      btnPlay.src="assets/pause.svg"
+      btnPlayPause.src = "assets/pause.svg"
 }
 
 // play music function
 const pauseMusic = () => {
       if (!currentSong.paused) {
             currentSong.pause();
-            btnPlay.src="assets/play.svg"
+            btnPlayPause.src = "assets/play.svg"
       }
 }
 
 const updateCurrentSong = (trackName) => {
-      console.log(trackName)
-      currentSong.src = "/songs/" + encodeURIComponent(trackName);
+      if (trackName === "Drive-breakbeat.mp3") {
+            currentSong.src = "/assets/drive-breakbeat.mp3";
+      } else {
+            currentSong.src = "/songs/" + encodeURIComponent(trackName);
+      }
       songName.innerHTML = trackName
+}
+
+// this function converts seconds to m:s formate
+function convertSecondsToMinutesAndSeconds(seconds) {
+      if (isNaN(seconds) || seconds < 0) {
+            return "00:00";
+      }
+
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60);
+
+      const formattedMinutes = String(minutes).padStart(2, "0");
+      const formattedSeconds = String(remainingSeconds).padStart(2, "0");
+
+      return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+// function to update song duration and time
+const handleTimeUpdate = () => {
+      currentSong.addEventListener("timeupdate", () => {
+            songTime.innerHTML = `${convertSecondsToMinutesAndSeconds(currentSong.currentTime)} / ${convertSecondsToMinutesAndSeconds(currentSong.duration)}`
+            pointer.style.width = `${(currentSong.currentTime / currentSong.duration) * 100}%`;
+      })
+}
+
+// this function handles the handle seekbar click andchange song time accordingly
+const handleSeekbarClick = () => {
+      seekbar.addEventListener("click",(e)=>{
+            console.log(e)
+      })
 }
 
 // function main
 async function main() {
       // getting songs list
       const songs = await getSongs();
-
-      // current song file
-      // currentSong = songs[0]
 
       // display songs list to user
       displaySongs(songs);
@@ -108,7 +138,13 @@ async function main() {
 
       // this is a custom function that takes a btn
       // whenever any user hit the btn this will automaticaly play current audio and will pause it on another click
-      handlePlayPause(btnPlay)
+      handlePlayPause(btnPlayPause)
+
+      // this function changes the song timing and duration according to music
+      handleTimeUpdate();
+
+      // this function handles the handle seekbar click andchange song time accordingly
+      handleSeekbarClick();
 
 }
 

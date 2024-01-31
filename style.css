@@ -176,12 +176,18 @@ body {
 
 .playbar {
       position: fixed;
-      bottom: 0;
+      bottom: 10px;
       background-color: #43564a;
       width: 75vw;
       padding: 24px;
       box-sizing: border-box;
       height: 12vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      justify-items: center;
 }
 
 .playbar .song-btn {
@@ -199,7 +205,7 @@ body {
       padding: 0px 6px;
 }
 
-.songs > li{
+.songs>li {
       padding: 6px;
       display: flex;
       justify-content: space-between;
@@ -209,23 +215,23 @@ body {
       border-radius: 6px;
 }
 
-.songs > li > .info{
+.songs>li>.info {
       width: 234px;
 }
 
-.play-now{
+.play-now {
       gap: 10px;
 }
 
-.play-now > img{
+.play-now>img {
       height: 32px;
 }
 
-.play-now>span{
+.play-now>span {
       font-size: 12px;
 }
 
-.playbar .seekbar{
+.playbar .seekbar {
       position: absolute;
       bottom: 0;
       right: 0;
@@ -234,8 +240,12 @@ body {
       width: 100%;
 }
 
-.seekbar .circle{
-      width: 1%;
+.seekbar:hover{
+      cursor: pointer;
+}
+
+.seekbar .circle {
+      width: 0%;
       height: 100%;
       background-color: black;
       transition: width 0.2s ease-out;
