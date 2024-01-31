@@ -175,10 +175,10 @@ body {
 }
 
 .playbar {
-      position: absolute;
+      position: fixed;
       bottom: 0;
       background-color: #43564a;
-      width: 100%;
+      width: 75vw;
       padding: 24px;
       box-sizing: border-box;
       height: 12vh;
@@ -194,12 +194,49 @@ body {
 }
 
 .library .song-list .songs {
-      overflow-y: auto;
+      overflow: auto;
       max-height: 52vh;
-      padding: 0px 24px;
+      padding: 0px 6px;
 }
 
 .songs > li{
-      padding: 6px 0px;
-      /* list-style: none; */
+      padding: 6px;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      align-items: center;
+      border: 1px solid white;
+      border-radius: 6px;
+}
+
+.songs > li > .info{
+      width: 234px;
+}
+
+.play-now{
+      gap: 10px;
+}
+
+.play-now > img{
+      height: 32px;
+}
+
+.play-now>span{
+      font-size: 12px;
+}
+
+.playbar .seekbar{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: white;
+      height: 8px;
+      width: 100%;
+}
+
+.seekbar .circle{
+      width: 1%;
+      height: 100%;
+      background-color: black;
+      transition: width 0.2s ease-out;
 }

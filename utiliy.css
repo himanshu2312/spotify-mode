@@ -216,7 +216,7 @@
       padding-right: 25px;
 }
 
-.btn:hover{
+.btn{
       cursor: pointer;
 }
 
@@ -242,7 +242,7 @@
 
 /* WebKit (Chrome, Safari) scrollbar styling */
 ::-webkit-scrollbar {
-      width: 12px;
+      width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {

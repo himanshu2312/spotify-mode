@@ -33,8 +33,8 @@
                               <img class="invert" src="assets/logo.svg" alt="Spotify_logo">
                         </div>
                         <ul>
-                              <li><img class="invert" src="assets/home.svg" alt="home">Home</li>
-                              <li><img class="invert" src="assets/search.svg" alt="home">Search</li>
+                              <li class="btn"><img class="invert" src="assets/home.svg" alt="home">Home</li>
+                              <li class="btn"><img class="invert" src="assets/search.svg" alt="home">Search</li>
                         </ul>
                   </div>
                   <div class="library bg-grey rounded m-1_5 p-3">
@@ -45,8 +45,20 @@
                               </div>
                               <img class="invert" src="assets/add.svg" alt="add">
                         </div>
-                        <div class="song-list my-3 bg-black rounded">
-                              <ul class="songs"></ul>
+                        <div class="song-list my-3 rounded">
+                              <ul class="songs">
+                                    <li class="my-2">
+                                          <img class="invert" src="assets/music.svg" alt="music">
+                                          <div class="info">
+                                                <div><b>Music Name</b></div>
+                                                <div>Music Artist</div>
+                                          </div>
+                                          <div class="play-now flex items-center">
+                                                <span>play now</span>
+                                                <img class="invert" src="assets/play.svg" alt="">
+                                          </div>
+                                    </li>
+                              </ul>
                         </div>
                         <div class="footer">
                               <div class="footer-content">
@@ -73,8 +85,8 @@
             <div class="right rounded my-1_5">
                   <div class="header bg-grey p-3">
                         <div class="nav">
-                              <img class="invert mx-1" src="assets/left.svg" alt="">
-                              <img class="invert mx-1" src="assets/right.svg" alt="">
+                              <img class="invert mx-1 btn" src="assets/left.svg" alt="">
+                              <img class="invert mx-1 btn" src="assets/right.svg" alt="">
                         </div>
                         <div class="buttons">
                               <button class="btn-signup">Sign up</button>
@@ -226,6 +238,11 @@
                               </div>
                               <div class="song-time">
                                     <h3>song-time</h3>
+                              </div>
+                              <div class="seekbar">
+                                    <div class="circle">
+                                          
+                                    </div>
                               </div>
                         </div>
                   </div>

@@ -51,11 +51,17 @@ const handlePlayPause = (audio, btnPlay) => {
 // this function displays the song list to user on web
 const displaySongs = (songs) => {
       songs?.map((song)=>{
-            songUl.innerHTML = songUl.innerHTML + `<li>${decodeURIComponent(song.split("/songs/")[1])}</li>`;
-            // songItem.addEventListener("click",()=>{
-            //       console.log("assigning current to " + song)
-            //       currentSong = song;
-            // })
+            songUl.innerHTML = songUl.innerHTML + `<li class="my-2">
+                  <img class="invert" src="assets/music.svg" alt="music">
+                  <div class="info">
+                        <div><b>${decodeURIComponent(song.split("/songs/")[1])}</b></div>
+                        <div>Music Artist</div>
+                  </div>
+                  <div class="play-now flex items-center">
+                        <span>play now</span>
+                        <img class="invert" src="assets/play.svg" alt="">
+                  </div>
+            </li>`;
       })
 }
 
