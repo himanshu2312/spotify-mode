@@ -1,14 +1,17 @@
+// declaring base url or address of songs
+const baseUrl = "http://192.168.43.59:3000/songs/";
+
 // accesding DOM Elements to manipulate them on user interaction
 const songDiv = document.getElementById("divCurrentSong");
 const songName = songDiv.firstElementChild.firstElementChild;
 const songTime = songDiv.lastElementChild.firstElementChild;
-const btnPlay = songDiv.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling;
+const btnPlay = document.getElementById("play/pause")
 const songUl = document.querySelector(".songs");
-var currentSong = {};
+var currentSong = new Audio();
 
 // function to fetch the songs
 const getSongs = async () => {
-      const response = await fetch("http://192.168.43.59:3000/songs/");
+      const response = await fetch(baseUrl);
       const result = await response.text()
       const div = document.createElement("div")
       div.innerHTML = result;
@@ -22,24 +25,15 @@ const getSongs = async () => {
       return songs;
 }
 
-const handlePlayPause = (audio, btnPlay) => {
-
-      // initialising counter to keep track of play and pause
-      var count = 0;
+const handlePlayPause = (btnPlay) => {
 
       btnPlay.addEventListener("click", () => {
             try {
                   console.log("click")
-                  if (count === 0) {
-                        count++;
-                        audio.play();
-                        console.log(audio.duration);
-                        console.log(audio.currentTime);
+                  if (currentSong.paused) {
+                        playMusic();
                   } else {
-                        count--;
-                        audio.pause();
-                        console.log(audio.duration);
-                        console.log(audio.currentTime);
+                        pauseMusic();
                   }
             } catch (e) {
                   console.log(e.message)
@@ -50,7 +44,7 @@ const handlePlayPause = (audio, btnPlay) => {
 
 // this function displays the song list to user on web
 const displaySongs = (songs) => {
-      songs?.map((song)=>{
+      songs?.map((song) => {
             songUl.innerHTML = songUl.innerHTML + `<li class="my-2">
                   <img class="invert" src="assets/music.svg" alt="music">
                   <div class="info">
@@ -65,23 +59,56 @@ const displaySongs = (songs) => {
       })
 }
 
+// this function adds click listner to each music item
+const addListners = () => {
+      Array.from(songUl.getElementsByTagName("li")).forEach((li) => {
+            // updating current song if music item is clicked
+            li.addEventListener("click", () => {
+                  
+                  updateCurrentSong(li.querySelector(".info").firstElementChild.firstElementChild.innerHTML)
+                  playMusic();
+            })
+      })
+}
+
+// play music function
+const playMusic = () => {
+      pauseMusic();
+      currentSong.play();
+      btnPlay.src="assets/pause.svg"
+}
+
+// play music function
+const pauseMusic = () => {
+      if (!currentSong.paused) {
+            currentSong.pause();
+            btnPlay.src="assets/play.svg"
+      }
+}
+
+const updateCurrentSong = (trackName) => {
+      console.log(trackName)
+      currentSong.src = "/songs/" + encodeURIComponent(trackName);
+      songName.innerHTML = trackName
+}
+
 // function main
 async function main() {
       // getting songs list
       const songs = await getSongs();
 
       // current song file
-      currentSong = songs[0];
+      // currentSong = songs[0]
 
       // display songs list to user
       displaySongs(songs);
 
-      // initialising a audio type object to play and pause the song in backend
-      var audio = new Audio(currentSong);
+      // adding event listners to each music item
+      addListners();
 
-      // this is a custom function that takes and sudio file & a btn
-      // whenever any user hit the btn this will automaticaly play that audio and will pause it on another click
-      handlePlayPause(audio, btnPlay)
+      // this is a custom function that takes a btn
+      // whenever any user hit the btn this will automaticaly play current audio and will pause it on another click
+      handlePlayPause(btnPlay)
 
 }
 

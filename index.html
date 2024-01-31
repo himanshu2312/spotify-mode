@@ -47,7 +47,7 @@
                         </div>
                         <div class="song-list my-3 rounded">
                               <ul class="songs">
-                                    <li class="my-2">
+                                    <!-- <li class="my-2">
                                           <img class="invert" src="assets/music.svg" alt="music">
                                           <div class="info">
                                                 <div><b>Music Name</b></div>
@@ -57,7 +57,7 @@
                                                 <span>play now</span>
                                                 <img class="invert" src="assets/play.svg" alt="">
                                           </div>
-                                    </li>
+                                    </li> -->
                               </ul>
                         </div>
                         <div class="footer">
@@ -227,21 +227,20 @@
                                     </div>
                               </div>
                         </div>
-                        <div id="divCurrentSong" class="playbar flex justify-between items-center">
+                        <div id="divCurrentSong" class="playbar flex justify-evenly items-center">
                               <div class="song-info">
                                     <h3>SOng Name</h3>
                               </div>
                               <div class="song-btn flex">
-                                    <img class="invert btn" src="assets/pre.svg" alt="pre">
-                                    <img class="invert btn" src="assets/play.svg" alt="play/pause">
-                                    <img class="invert btn" src="assets/next.svg" alt="next">
+                                    <img id="previous" class="invert btn" src="assets/pre.svg" alt="pre">
+                                    <img id="play/pause" class="invert btn" src="assets/play.svg" alt="play/pause">
+                                    <img id="next" class="invert btn" src="assets/next.svg" alt="next">
                               </div>
                               <div class="song-time">
                                     <h3>song-time</h3>
                               </div>
                               <div class="seekbar">
                                     <div class="circle">
-                                          
                                     </div>
                               </div>
                         </div>
