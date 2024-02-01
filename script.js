@@ -115,13 +115,20 @@ const handleTimeUpdate = () => {
       currentSong.addEventListener("timeupdate", () => {
             songTime.innerHTML = `${convertSecondsToMinutesAndSeconds(currentSong.currentTime)} / ${convertSecondsToMinutesAndSeconds(currentSong.duration)}`
             pointer.style.width = `${(currentSong.currentTime / currentSong.duration) * 100}%`;
+            if (currentSong.currentTime === currentSong.duration) {
+                  btnPlayPause.src = "assets/play.svg";
+                  pointer.style.width = `0%`;
+            }
       })
 }
 
 // this function handles the handle seekbar click andchange song time accordingly
 const handleSeekbarClick = () => {
-      seekbar.addEventListener("click",(e)=>{
-            console.log(e)
+      seekbar.addEventListener("click", (e) => {
+            const base = e.target.getBoundingClientRect().width;
+            const percent = (e.offsetX / base) * 100;
+            currentSong.currentTime = (percent * currentSong.duration) / 100;
+            pointer.style.width = `${percent}%`;
       })
 }
 

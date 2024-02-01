@@ -23,10 +23,14 @@ body {
 .home ul li {
       list-style: none;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 20px;
       display: flex;
       gap: 20px;
       padding-top: 16px;
+}
+
+.home .logo img{
+      width: 132px;
 }
 
 .library {
@@ -35,7 +39,7 @@ body {
 
 .heading {
       font-weight: 700;
-      font-size: 15px;
+      font-size: 20px;
       display: flex;
       gap: 20px;
       align-items: center;
