@@ -9,13 +9,15 @@ const btnPlayPause = document.getElementById("play/pause")
 const songUl = document.querySelector(".songs");
 const pointer = document.getElementById("pointer");
 const seekbar = document.getElementById("seekbar");
-var currentSong = new Audio("/assets/drive-breakbeat.mp3");
-
+const hamburger = document.getElementById("hamburger");
+const currentSong = new Audio("/assets/drive-breakbeat.mp3");
+const left = document.getElementById("left");
+const close = document.getElementById("close");
 // function to fetch the songs
 const getSongs = async () => {
       const response = await fetch(baseUrl);
-      const result = await response.text()
-      const div = document.createElement("div")
+      const result = await response.text();
+      const div = document.createElement("div");
       div.innerHTML = result;
       const songList = Array.from(div.getElementsByTagName("a"));
       const songs = [];
@@ -37,7 +39,7 @@ const handlePlayPause = (btnPlayPause) => {
                         pauseMusic();
                   }
             } catch (e) {
-                  console.log(e.message)
+                  console.error(e.message);
             }
       })
 
@@ -65,7 +67,7 @@ const addListners = () => {
       Array.from(songUl.getElementsByTagName("li")).forEach((li) => {
             // updating current song if music item is clicked
             li.addEventListener("click", () => {
-                  updateCurrentSong(li.querySelector(".info").firstElementChild.firstElementChild.innerHTML)
+                  updateCurrentSong(li.querySelector(".info").firstElementChild.firstElementChild.innerHTML);
                   playMusic();
             })
       })
@@ -73,16 +75,28 @@ const addListners = () => {
 
 // play music function
 const playMusic = () => {
-      pauseMusic();
-      currentSong.play();
-      btnPlayPause.src = "assets/pause.svg"
+      try {
+            pauseMusic();
+            currentSong.play();
+            btnPlayPause.src = "assets/pause.svg";
+      }
+      catch (e) {
+            console.error(e.message)
+            console.log("Sorry, Unable to play the music");
+      }
 }
 
 // play music function
 const pauseMusic = () => {
-      if (!currentSong.paused) {
-            currentSong.pause();
-            btnPlayPause.src = "assets/play.svg"
+      try {
+            if (!currentSong.paused) {
+                  currentSong.pause();
+                  btnPlayPause.src = "assets/play.svg";
+            }
+      }
+      catch (e) {
+            console.error(e.message)
+            console.log("Sorry, Unable to pause the music");
       }
 }
 
@@ -132,6 +146,40 @@ const handleSeekbarClick = () => {
       })
 }
 
+// this function open the left menu pannel on the click of hamburger icon
+const handleOpenPannel = () => {
+      hamburger.addEventListener("click", () => {
+            try {
+                  left.style.backgroundColor = "black";
+                  left.style.width = "100vw"
+                  left.style.zIndex = 1
+                  left.style.position = "absolute"
+                  left.style.left = 0;
+            }
+            catch (e) {
+                  console.error(e.message);
+                  console.log("Sorry, Unable to open the side menu drawer");
+            }
+      })
+}
+
+// this function close the left menu pannel on the click of hamburger icon
+const handleClosePannel = () => {
+      close.addEventListener("click", () => {
+            try {
+                  left.style.left = "-100%";
+                  // left.style.position = "relative"
+                  // left.style.zIndex = 0
+                  // left.style.width = "25vw"
+                  // left.style.backgroundColor = "none";
+            }
+            catch (e) {
+                  console.log(e.message)
+                  console.log("Sorry, Unable to close the side menu drawer");
+            }
+      })
+}
+
 // function main
 async function main() {
       // getting songs list
@@ -152,6 +200,12 @@ async function main() {
 
       // this function handles the handle seekbar click andchange song time accordingly
       handleSeekbarClick();
+
+      // this function add click listener to hamburger icon
+      handleOpenPannel();
+
+      // this function add click listener to close icon
+      handleClosePannel();
 
 }
 

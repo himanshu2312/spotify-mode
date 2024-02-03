@@ -4,6 +4,10 @@
       margin: 3px;
 }
 
+.none{
+      display: none;
+}
+
 .flex {
       display: flex;
 }

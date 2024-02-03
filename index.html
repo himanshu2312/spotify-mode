@@ -27,10 +27,11 @@
 
 <body>
       <div class="body flex">
-            <div class="left">
+            <div id="left" class="left">
                   <div class="home bg-grey rounded m-1_5 p-3">
-                        <div class="logo">
+                        <div class="logo flex items-center justify-between">
                               <img class="invert" src="assets/logo.svg" alt="Spotify_logo">
+                              <img id="close" class="invert btn" src="assets/close.svg" alt="close">
                         </div>
                         <ul>
                               <li class="btn"><img class="invert" src="assets/home.svg" alt="home">Home</li>
@@ -83,19 +84,22 @@
                   </div>
             </div>
             <div class="right rounded my-1_5">
-                  <div class="header bg-grey p-3">
-                        <div class="nav">
-                              <img class="invert mx-1 btn" src="assets/left.svg" alt="">
-                              <img class="invert mx-1 btn" src="assets/right.svg" alt="">
-                        </div>
-                        <div class="buttons">
-                              <button class="btn-signup">Sign up</button>
-                              <button class="btn-login">Log in</button>
+                  <div class="header-container bg-grey p-3 flex items-center">
+                        <img id="hamburger" class="invert btn hamburger" src="assets/hamburger.svg" alt="menu">
+                        <div class="header">
+                              <div class="nav flex items-center">
+                                    <img class="invert mx-1 btn" src="assets/left.svg" alt="">
+                                    <img class="invert mx-1 btn" src="assets/right.svg" alt="">
+                              </div>
+                              <div class="buttons flex items-center">
+                                    <button class="btn-signup">Sign up</button>
+                                    <button class="btn-login">Log in</button>
+                              </div>
                         </div>
                   </div>
                   <div class="playlists">
                         <h2 class="my-2 px-5">Spotify Playlists</h2>
-                        <div class="card-container flex flex-wrap mx-4">
+                        <div class="card-container flex flex-wrap justify-evenly mx-4">
                               <div class="card flex flex-col p-3 m-2 rounded">
                                     <img src="assets/card_img.jpg" alt="">
                                     <div class="play">

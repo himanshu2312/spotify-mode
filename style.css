@@ -29,8 +29,13 @@ body {
       padding-top: 16px;
 }
 
-.home .logo img{
+.home .logo img:first-child {
       width: 132px;
+}
+
+.home .logo img:last-child {
+      width: 25px;
+      display: none;
 }
 
 .library {
@@ -64,7 +69,7 @@ body {
 .footer-content {
       display: flex;
       flex-wrap: wrap;
-      font-size: 12px;
+      font-size: 16px;
       justify-items: center;
       align-items: center;
       gap: 12px;
@@ -76,19 +81,31 @@ body {
       color: grey;
 }
 
+.header-container {
+      gap: 20px;
+      height: 6vh;
+      overflow-y: hidden;
+}
+
 .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      /* z-index: 1; */
-      /* position: sticky;
-      top: 7.5px; */
-      /* height: 6vh; */
+      width: 100%;
       border-top-right-radius: inherit;
       border-top-left-radius: inherit;
 }
 
-.header img {
+.header .buttons{
+      gap:20px;
+}
+
+.hamburger {
+      display: none;
+      width: 38px;
+}
+
+.header>div>img {
       background-color: white;
       border-radius: 50%;
       padding: 10px;
@@ -153,7 +170,7 @@ body {
       background-color: transparent;
       font-size: 22px;
       border: none;
-      margin-right: 20px;
+      /* margin-right: 20px; */
 }
 
 .btn-signup:hover {
@@ -192,15 +209,15 @@ body {
       align-items: center;
       align-content: center;
       justify-items: center;
+      gap: 20px;
 }
 
 .playbar .song-btn {
-      gap: 20px;
-      size: 25px;
+      gap: 10px;
 }
 
 .song-btn>img {
-      width: 40px;
+      width: 25px;
 }
 
 .library .song-list .songs {
@@ -212,11 +229,12 @@ body {
 .songs>li {
       padding: 6px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       cursor: pointer;
       align-items: center;
       border: 1px solid white;
       border-radius: 6px;
+      gap: 10px;
 }
 
 .songs>li>.info {
@@ -244,7 +262,7 @@ body {
       width: 100%;
 }
 
-.seekbar:hover{
+.seekbar:hover {
       cursor: pointer;
 }
 
@@ -254,3 +272,70 @@ body {
       background-color: black;
       transition: width 0.2s ease-out;
 }
+
+@media screen and (min-width: 1369px) and (max-width: 1643px) {
+      .left {
+            width: 30vw;
+      }
+
+      .right {
+            width: 70vw;
+      }
+}
+
+@media screen and (max-width: 1369px) {
+      .home .logo img:last-child {
+            display: block;
+      }
+
+      .left {
+            width: 25vw;
+            position: absolute;
+            left: -100%;
+      }
+
+      .right,
+      .playbar {
+            width: 100vw;
+      }
+
+      .hamburger {
+            display: block;
+      }
+}
+
+@media screen and (max-width: 440px) {
+      .btn-signup {
+            font-size: 12px;
+      }
+
+      .btn-signup:hover {
+            font-size: 14px;
+      }
+
+      .btn-login {
+            font-size: 12px;
+            padding: 6px 15px;
+      }
+
+      .btn-login:hover {
+            font-size: 14px;
+      }
+
+      .header>div>img {
+            padding: 5px;
+            width: 16px;
+      }
+      .hamburger{
+            width: 28px;
+      }
+      .footer-content {
+            font-size: 12px;
+      }
+}
+
+/* @media screen and (max-width: 398px) {
+      .play-now span{
+            display: none;
+      }
+} */
