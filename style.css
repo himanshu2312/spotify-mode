@@ -14,6 +14,7 @@ body {
 .left {
       width: 25vw;
       position: relative;
+      max-height: 100vh;
 }
 
 .home {
@@ -38,8 +39,8 @@ body {
       display: none;
 }
 
-.library {
-      height: 72vh;
+.left .library {
+      height: 72.4vh;
 }
 
 .heading {
@@ -96,8 +97,8 @@ body {
       border-top-left-radius: inherit;
 }
 
-.header .buttons{
-      gap:20px;
+.header .buttons {
+      gap: 20px;
 }
 
 .hamburger {
@@ -114,7 +115,7 @@ body {
 
 .playlists {
       overflow-y: auto;
-      max-height: 75vh;
+      max-height: 76vh;
 }
 
 .card {
@@ -202,7 +203,8 @@ body {
       width: 75vw;
       padding: 24px;
       box-sizing: border-box;
-      height: 12vh;
+      height: auto;
+      min-height: 12vh;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       justify-content: center;
@@ -239,6 +241,7 @@ body {
 
 .songs>li>.info {
       width: 234px;
+      word-break: break-all;
 }
 
 .play-now {
@@ -273,7 +276,7 @@ body {
       transition: width 0.2s ease-out;
 }
 
-@media screen and (min-width: 1369px) and (max-width: 1643px) {
+/* @media screen and (min-width: 1369px) and (max-width: 1643px) {
       .left {
             width: 30vw;
       }
@@ -281,7 +284,7 @@ body {
       .right {
             width: 70vw;
       }
-}
+} */
 
 @media screen and (max-width: 1369px) {
       .home .logo img:last-child {
@@ -301,6 +304,17 @@ body {
 
       .hamburger {
             display: block;
+      }
+
+      .playbar {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 12px;
+      }
+
+      .playbar h3 {
+            text-align: center;
       }
 }
 
@@ -326,16 +340,22 @@ body {
             padding: 5px;
             width: 16px;
       }
-      .hamburger{
+
+      .hamburger {
             width: 28px;
       }
+
       .footer-content {
             font-size: 12px;
       }
+
+      .header-container {
+            height: 4vh;
+      }
+
+      .playlists {
+            max-height: 77vh;
+      }
 }
 
-/* @media screen and (max-width: 398px) {
-      .play-now span{
-            display: none;
-      }
-} */
+@media screen and (max-width: 769px) {}

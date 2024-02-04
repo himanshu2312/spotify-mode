@@ -13,6 +13,9 @@ const hamburger = document.getElementById("hamburger");
 const currentSong = new Audio("/assets/drive-breakbeat.mp3");
 const left = document.getElementById("left");
 const close = document.getElementById("close");
+const previous = document.getElementById("previous");
+const next = document.getElementById("next");
+
 // function to fetch the songs
 const getSongs = async () => {
       const response = await fetch(baseUrl);
@@ -29,7 +32,7 @@ const getSongs = async () => {
       return songs;
 }
 
-const handlePlayPause = (btnPlayPause) => {
+const handlePlayPause = () => {
 
       btnPlayPause.addEventListener("click", () => {
             try {
@@ -67,7 +70,7 @@ const addListners = () => {
       Array.from(songUl.getElementsByTagName("li")).forEach((li) => {
             // updating current song if music item is clicked
             li.addEventListener("click", () => {
-                  updateCurrentSong(li.querySelector(".info").firstElementChild.firstElementChild.innerHTML);
+                  updateCurrentSong(li.getElementsByTagName("b")[0].innerHTML);
                   playMusic();
             })
       })
@@ -100,14 +103,6 @@ const pauseMusic = () => {
       }
 }
 
-const updateCurrentSong = (trackName) => {
-      if (trackName === "Drive-breakbeat.mp3") {
-            currentSong.src = "/assets/drive-breakbeat.mp3";
-      } else {
-            currentSong.src = "/songs/" + encodeURIComponent(trackName);
-      }
-      songName.innerHTML = trackName
-}
 
 // this function converts seconds to m:s formate
 function convertSecondsToMinutesAndSeconds(seconds) {
@@ -122,6 +117,18 @@ function convertSecondsToMinutesAndSeconds(seconds) {
       const formattedSeconds = String(remainingSeconds).padStart(2, "0");
 
       return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+// this function changes the song files
+const updateCurrentSong = async (trackName) => {
+      if (trackName === "Drive-breakbeat.mp3") {
+            currentSong.src = "/assets/drive-breakbeat.mp3";
+      } else {
+            currentSong.src = "/songs/" + encodeURIComponent(trackName);
+      }
+      songName.innerHTML = trackName
+      // console.log(currentSong)
+      // songTime.innerHTML = `00:00 / ${convertSecondsToMinutesAndSeconds(currentSong.duration)}`
 }
 
 // function to update song duration and time
@@ -153,7 +160,6 @@ const handleOpenPannel = () => {
                   left.style.backgroundColor = "black";
                   left.style.width = "100vw"
                   left.style.zIndex = 1
-                  left.style.position = "absolute"
                   left.style.left = 0;
             }
             catch (e) {
@@ -168,15 +174,45 @@ const handleClosePannel = () => {
       close.addEventListener("click", () => {
             try {
                   left.style.left = "-100%";
-                  // left.style.position = "relative"
-                  // left.style.zIndex = 0
-                  // left.style.width = "25vw"
-                  // left.style.backgroundColor = "none";
+                  left.style.zIndex = 0
+                  left.style.width = "25vw"
             }
             catch (e) {
                   console.log(e.message)
                   console.log("Sorry, Unable to close the side menu drawer");
             }
+      })
+}
+
+// this function handles the previous song click and change song accordingly
+const handlePrevious = (songs) => {
+      previous.addEventListener("click", () => {
+            const ind = songs.indexOf(`${baseUrl}${encodeURIComponent(songName.innerHTML)}`)
+            if (songName.innerHTML === "Drive-breakbeat.mp3") {
+                  updateCurrentSong(`${decodeURIComponent(songs[(songs.length) - 1].split("/songs/")[1])}`)
+            }
+            else if (ind !== 0) {
+                  updateCurrentSong(`${decodeURIComponent(songs[ind - 1].split("/songs/")[1])}`)
+            } else {
+                  updateCurrentSong("Drive-breakbeat.mp3")
+            }
+            playMusic();
+      })
+}
+
+// this function handles the next song click and change song accordingly
+const handleNext = (songs) => {
+      next.addEventListener("click", () => {
+            const ind = songs.indexOf(`${baseUrl}${encodeURIComponent(songName.innerHTML)}`)
+            if (songName.innerHTML === "Drive-breakbeat.mp3") {
+                  updateCurrentSong(`${decodeURIComponent(songs[0].split("/songs/")[1])}`)
+            }
+            else if (ind === songs.length - 1) {
+                  updateCurrentSong("Drive-breakbeat.mp3")
+            } else {
+                  updateCurrentSong(`${decodeURIComponent(songs[ind + 1].split("/songs/")[1])}`)
+            }
+            playMusic();
       })
 }
 
@@ -193,12 +229,18 @@ async function main() {
 
       // this is a custom function that takes a btn
       // whenever any user hit the btn this will automaticaly play current audio and will pause it on another click
-      handlePlayPause(btnPlayPause)
+      handlePlayPause()
+
+      // this function handles the next song click and change song accordingly
+      handleNext(songs)
+
+      // this function handles the previous song click and change song accordingly
+      handlePrevious(songs)
 
       // this function changes the song timing and duration according to music
       handleTimeUpdate();
 
-      // this function handles the handle seekbar click andchange song time accordingly
+      // this function handles the handle seekbar click and change song time accordingly
       handleSeekbarClick();
 
       // this function add click listener to hamburger icon
@@ -206,7 +248,6 @@ async function main() {
 
       // this function add click listener to close icon
       handleClosePannel();
-
 }
 
 // calling function main
