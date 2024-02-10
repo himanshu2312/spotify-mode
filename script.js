@@ -1,5 +1,5 @@
 // declaring base url or address of songs
-const baseUrl = "http://192.168.43.59:3000/sohngs/";
+const baseUrl = "https://spotify-2312.netlify.app/songs/";
 
 // accesding DOM Elements to manipulate them on user interaction
 const playbar = document.getElementById("playbar");
