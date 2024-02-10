@@ -226,7 +226,7 @@ async function main() {
             displaySongs(songs);
       }
       catch (e) {
-            console.log(e, message);
+            console.log(e.message);
             console.log("unable to fetch songs and display them in cart")
       }
 
