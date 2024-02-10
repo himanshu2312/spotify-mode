@@ -4,7 +4,6 @@
       margin: 0;
       padding: 0;
       font-family: 'Poppins', sans-serif;
-}
 
 body {
       background-color: black;
@@ -40,7 +39,8 @@ body {
 }
 
 .left .library {
-      height: 72.4vh;
+      height: 68vh;
+      /* height: calc(100vh - 18vh - 20px); */
 }
 
 .heading {

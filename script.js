@@ -158,7 +158,7 @@ const handleOpenPannel = () => {
       hamburger.addEventListener("click", () => {
             try {
                   left.style.backgroundColor = "black";
-                  left.style.width = "100vw"
+                  left.style.width = "min(400px,100vw)"
                   left.style.zIndex = 1
                   left.style.left = 0;
             }
