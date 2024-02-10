@@ -1,5 +1,5 @@
 // declaring base url or address of songs
-const baseUrl = "http://192.168.43.59:3000/songs/";
+const baseUrl = "http://192.168.43.59:3000/sohngs/";
 
 // accesding DOM Elements to manipulate them on user interaction
 const playbar = document.getElementById("playbar");
@@ -218,11 +218,17 @@ const handleNext = (songs) => {
 
 // function main
 async function main() {
-      // getting songs list
-      const songs = await getSongs();
+      try {
+            // getting songs list
+            const songs = await getSongs();
 
-      // display songs list to user
-      displaySongs(songs);
+            // display songs list to user
+            displaySongs(songs);
+      }
+      catch (e) {
+            console.log(e, message);
+            console.log("unable to fetch songs and display them in cart")
+      }
 
       // adding event listners to each music item
       addListners();
@@ -231,11 +237,17 @@ async function main() {
       // whenever any user hit the btn this will automaticaly play current audio and will pause it on another click
       handlePlayPause()
 
-      // this function handles the next song click and change song accordingly
-      handleNext(songs)
+      try {
+            // this function handles the next song click and change song accordingly
+            handleNext(songs)
+            // this function handles the previous song click and change song accordingly
+            handlePrevious(songs)
+      }
+      catch (e) {
+            console.log(e.message);
+            console.log("unable to handle next and previous clicks")
+      }
 
-      // this function handles the previous song click and change song accordingly
-      handlePrevious(songs)
 
       // this function changes the song timing and duration according to music
       handleTimeUpdate();
