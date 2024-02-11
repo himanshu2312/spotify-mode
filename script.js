@@ -1,5 +1,5 @@
 // declaring base url or address of songs
-const baseUrl = "https://github.com/himanshu2312/spotify-mode/tree/main/songs";
+const baseUrl = "http://192.168.43.59:3000/songs/";
 
 // accesding DOM Elements to manipulate them on user interaction
 const playbar = document.getElementById("playbar");
@@ -29,6 +29,7 @@ const getSongs = async () => {
                   songs.push(song.href);
             }
       })
+      // console.log(songs)
       return songs;
 }
 
@@ -222,7 +223,7 @@ const handleNext = (songs) => {
 async function main() {
       try {
             // getting songs list
-            const songs = await getSongs();
+            var songs = await getSongs();
 
             // display songs list to user
             displaySongs(songs);
