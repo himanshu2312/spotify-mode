@@ -1,0 +1,124 @@
+{
+      "payload": {
+            "allShortcutsEnabled": false,
+            "path": "songs",
+            "repo": {
+                  "id": 742089761,
+                  "defaultBranch": "main",
+                  "name": "spotify-mode",
+                  "ownerLogin": "himanshu2312",
+                  "currentUserCanPush": false,
+                  "isFork": false,
+                  "isEmpty": false,
+                  "createdAt": "2024-01-11T18:34:20.000Z",
+                  "ownerAvatar": "https://avatars.githubusercontent.com/u/89704963?v=4",
+                  "public": true,
+                  "private": false,
+                  "isOrgOwned": false
+            },
+            "currentUser": null,
+            "refInfo": {
+                  "name": "main",
+                  "listCacheKey": "v0:1704998137.0",
+                  "canEdit": false,
+                  "refType": "branch",
+                  "currentOid": "ff049e66b1d0be4e7d16c8a78de546fb75012fe2"
+            },
+            "tree": {
+                  "items": [
+                        {
+                              "name": "Waalian _ Harnoor (Official Video) Gifty _ The Kidd _ Latest Punjabi Songs 2020 _ Jatt Life Studios ( 256kbps cbr ).mp3",
+                              "path": "songs/Waalian _ Harnoor (Official Video) Gifty _ The Kidd _ Latest Punjabi Songs 2020 _ Jatt Life Studios ( 256kbps cbr ).mp3",
+                              "contentType": "file"
+                        },
+                        {
+                              "name": "Yeh Raaten Yeh Mausam _ Sanam ft. Simran Sehgal ( 128kbps ).mp3",
+                              "path": "songs/Yeh Raaten Yeh Mausam _ Sanam ft. Simran Sehgal ( 128kbps ).mp3",
+                              "contentType": "file"
+                        },
+                        {
+                              "name": "Your Name - Maybe My Soulmate Died ( 256kbps cbr ).mp3",
+                              "path": "songs/Your Name - Maybe My Soulmate Died ( 256kbps cbr ).mp3",
+                              "contentType": "file"
+                        },
+                        {
+                              "name": "Zara Zara (Unacademy Unwind With MTV) Arjun Kanungo(audiosong.in).mp3",
+                              "path": "songs/Zara Zara (Unacademy Unwind With MTV) Arjun Kanungo(audiosong.in).mp3",
+                              "contentType": "file"
+                        },
+                        {
+                              "name": "Zindagi Kuch Toh Bata (Reprise) Full Song with LYRICS Pritam _ Salman Khan _ Bajrangi Bhaijaan ( 128kbps ).m4a",
+                              "path": "songs/Zindagi Kuch Toh Bata (Reprise) Full Song with LYRICS Pritam _ Salman Khan _ Bajrangi Bhaijaan ( 128kbps ).m4a",
+                              "contentType": "file"
+                        },
+                        {
+                              "name": "आरंभ है प्रचंड बोले मस्तको के झुंड _ Aaram ( 128kbps ).m4a",
+                              "path": "songs/आरंभ है प्रचंड बोले मस्तको के झुंड _ Aaram ( 128kbps ).m4a",
+                              "contentType": "file"
+                        }
+                  ],
+                  "templateDirectorySuggestionUrl": null,
+                  "readme": null,
+                  "totalCount": 6,
+                  "showBranchInfobar": false
+            },
+            "fileTree": {
+                  "": {
+                        "items": [
+                              {
+                                    "name": "assets",
+                                    "path": "assets",
+                                    "contentType": "directory"
+                              },
+                              {
+                                    "name": "songs",
+                                    "path": "songs",
+                                    "contentType": "directory"
+                              },
+                              {
+                                    "name": "favicon.ico",
+                                    "path": "favicon.ico",
+                                    "contentType": "file"
+                              },
+                              {
+                                    "name": "index.html",
+                                    "path": "index.html",
+                                    "contentType": "file"
+                              },
+                              {
+                                    "name": "script.js",
+                                    "path": "script.js",
+                                    "contentType": "file"
+                              },
+                              {
+                                    "name": "style.css",
+                                    "path": "style.css",
+                                    "contentType": "file"
+                              },
+                              {
+                                    "name": "utiliy.css",
+                                    "path": "utiliy.css",
+                                    "contentType": "file"
+                              }
+                        ],
+                        "totalCount": 7
+                  }
+            },
+            "fileTreeProcessingTime": 1.5632949999999999,
+            "foldersToFetch": [],
+            "treeExpanded": true,
+            "symbolsExpanded": false,
+            "csrf_tokens": {
+                  "/himanshu2312/spotify-mode/branches": {
+                        "post": "3diS9IejdNUz1X7tLzYcXmIyFqCFysLhpP6C03gDvz4BzHOShYJxndoEHQCsoe_tHWCLKBlLmQrMPFhNpaN7vg"
+                  },
+                  "/himanshu2312/spotify-mode/branches/fetch_and_merge/main": {
+                        "post": "faHbGntXqg1qYAFT6kCyxE5ZFXWDelmt_peUZLfIxm4cnq26us2cPKTtNFUw1nFbc10Cz21ziA0-IAUhTkZmkQ"
+                  },
+                  "/himanshu2312/spotify-mode/branches/fetch_and_merge/main?discard_changes=true": {
+                        "post": "quXWM30WfiJxIz_dtPfPrPvE6x92QtNpexuANoCqMX7L2qCTvIxIE7-uCttuYQwzxsD8pZhLAsm7rBFzeSSRgQ"
+                  }
+            }
+      },
+      "title": "spotify-mode/songs at main · himanshu2312/spotify-mode"
+}

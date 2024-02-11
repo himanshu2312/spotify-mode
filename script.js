@@ -1,5 +1,5 @@
 // declaring base url or address of songs
-const baseUrl = "https://spotify-2312.netlify.app/songs/";
+const baseUrl = "https://github.com/himanshu2312/spotify-mode/tree/main/songs";
 
 // accesding DOM Elements to manipulate them on user interaction
 const playbar = document.getElementById("playbar");
@@ -42,16 +42,17 @@ const handlePlayPause = () => {
                         pauseMusic();
                   }
             } catch (e) {
-                  console.error(e.message);
+                  // console.error(e.message);
+                  console.log("Unabe to handle play and pause clicks")
             }
       })
-
 }
 
 // this function displays the song list to user on web
 const displaySongs = (songs) => {
-      songs?.map((song) => {
-            songUl.innerHTML = songUl.innerHTML + `<li class="my-2">
+      if (songs.length !== 0) {
+            songs?.map((song) => {
+                  songUl.innerHTML = songUl.innerHTML + `<li class="my-2">
                   <img class="invert" src="assets/music.svg" alt="music">
                   <div class="info">
                         <div><b>${decodeURIComponent(song.split("/songs/")[1])}</b></div>
@@ -62,7 +63,8 @@ const displaySongs = (songs) => {
                         <img class="invert" src="assets/play.svg" alt="">
                   </div>
             </li>`;
-      })
+            })
+      }
 }
 
 // this function adds click listner to each music item
@@ -84,7 +86,7 @@ const playMusic = () => {
             btnPlayPause.src = "assets/pause.svg";
       }
       catch (e) {
-            console.error(e.message)
+            // console.error(e.message)
             console.log("Sorry, Unable to play the music");
       }
 }
@@ -98,7 +100,7 @@ const pauseMusic = () => {
             }
       }
       catch (e) {
-            console.error(e.message)
+            // console.error(e.message)
             console.log("Sorry, Unable to pause the music");
       }
 }
@@ -163,7 +165,7 @@ const handleOpenPannel = () => {
                   left.style.left = 0;
             }
             catch (e) {
-                  console.error(e.message);
+                  // console.error(e.message);
                   console.log("Sorry, Unable to open the side menu drawer");
             }
       })
@@ -178,7 +180,7 @@ const handleClosePannel = () => {
                   left.style.width = "25vw"
             }
             catch (e) {
-                  console.log(e.message)
+                  // console.log(e.message)
                   console.log("Sorry, Unable to close the side menu drawer");
             }
       })
@@ -226,7 +228,7 @@ async function main() {
             displaySongs(songs);
       }
       catch (e) {
-            console.log(e.message);
+            // console.log(e.message);
             console.log("unable to fetch songs and display them in cart")
       }
 
@@ -244,10 +246,9 @@ async function main() {
             handlePrevious(songs)
       }
       catch (e) {
-            console.log(e.message);
+            // console.log(e.message);
             console.log("unable to handle next and previous clicks")
       }
-
 
       // this function changes the song timing and duration according to music
       handleTimeUpdate();
